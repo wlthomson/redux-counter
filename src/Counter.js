@@ -10,17 +10,17 @@ function mapStateToProps(state) {
 class Counter extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.dispatch = props.dispatch;
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
 
   increment = () => {
-    this.setState({ count: this.state.count + 1 });
+    this.dispatch({ type: 'INCREMENT' });
   };
 
   decrement = () => {
-    this.setState({ count: this.state.count - 1 });
+    this.dispatch({ type: 'DECREMENT' });
   };
 
   render() {
@@ -29,7 +29,7 @@ class Counter extends Component {
         <h2>Counter</h2>
         <div>
           <button onClick={this.decrement}>-</button>
-          <span>{this.state.count}</span>
+          <span>{this.props.count}</span>
           <button onClick={this.increment}>+</button>
         </div>
       </div>
