@@ -5,7 +5,9 @@ import { createStore } from 'redux';
 
 import Counter from './Counter';
 
-const store = createStore();
+const store = createStore(() => {
+  return { count: 42 };
+});
 
 export default class App extends Component {
   render() {
